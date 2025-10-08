@@ -4,7 +4,9 @@ import VueRouter from 'unplugin-vue-router/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [VueRouter({
-      /* options */
-    }),vue()],
+  plugins: [
+      VueRouter({
+      routesFolder: ["src/pages", ...catalogs.map((item) => `./src/modules/${item}/views/`)],
+    }),
+    vue()],
 })

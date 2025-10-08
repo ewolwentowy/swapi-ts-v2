@@ -1,10 +1,19 @@
 <script setup lang="ts">
 import {RouterView} from 'vue-router'
+import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
+  <header>
+    <div class="wrapper">
+      <Navbar/>
+    </div>
+  </header>
 
-  <RouterView />
+  <RouterView/>
+  <footer>
+    <p class="bg-dark">&copy 2025 || Design By Mateusz</p>
+  </footer>
 </template>
 
 <style scoped>
@@ -14,9 +23,11 @@ import {RouterView} from 'vue-router'
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
