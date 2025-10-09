@@ -19,6 +19,12 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/People': RouteRecordInfo<'/People', '/People', Record<never, never>, Record<never, never>>,
+    '/PeopleDetails': RouteRecordInfo<'/PeopleDetails', '/PeopleDetails', Record<never, never>, Record<never, never>>,
+    '/Planet': RouteRecordInfo<'/Planet', '/Planet', Record<never, never>, Record<never, never>>,
+    '/PlanetDetails': RouteRecordInfo<'/PlanetDetails', '/PlanetDetails', Record<never, never>, Record<never, never>>,
+    '/species/[id]': RouteRecordInfo<'/species/[id]', '/species/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/Species': RouteRecordInfo<'/Species', '/Species', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -34,6 +40,30 @@ declare module 'vue-router/auto-routes' {
   export interface _RouteFileInfoMap {
     'src/pages/index.vue': {
       routes: '/'
+      views: never
+    }
+    'src/modules/People/views/People.vue': {
+      routes: '/People'
+      views: never
+    }
+    'src/modules/People/views/PeopleDetails.vue': {
+      routes: '/PeopleDetails'
+      views: never
+    }
+    'src/modules/Planets/views/Planet.vue': {
+      routes: '/Planet'
+      views: never
+    }
+    'src/modules/Planets/views/PlanetDetails.vue': {
+      routes: '/PlanetDetails'
+      views: never
+    }
+    'src/modules/Species/views/species/[id].vue': {
+      routes: '/species/[id]'
+      views: never
+    }
+    'src/modules/Species/views/Species.vue': {
+      routes: '/Species'
       views: never
     }
   }

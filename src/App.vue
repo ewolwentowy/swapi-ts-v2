@@ -17,18 +17,11 @@ import Navbar from "./components/Navbar.vue";
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+footer {
+	height: 70px;
+	text-align: center;
+	line-height: 70px;
+	font-size: 20px;
+	color: rgb(235, 203, 25);
 }
 </style>
