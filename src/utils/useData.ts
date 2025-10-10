@@ -7,6 +7,7 @@ export function useFetch<T>(url: string) {
     const loading = ref(true)
 
     async function getData() {
+        data.value = null;
         error.value = null;
         loading.value = true;
 

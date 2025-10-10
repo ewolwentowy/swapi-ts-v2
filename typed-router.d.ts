@@ -19,10 +19,10 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/people/[id]': RouteRecordInfo<'/people/[id]', '/people/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/People': RouteRecordInfo<'/People', '/People', Record<never, never>, Record<never, never>>,
-    '/PeopleDetails': RouteRecordInfo<'/PeopleDetails', '/PeopleDetails', Record<never, never>, Record<never, never>>,
-    '/Planet': RouteRecordInfo<'/Planet', '/Planet', Record<never, never>, Record<never, never>>,
-    '/PlanetDetails': RouteRecordInfo<'/PlanetDetails', '/PlanetDetails', Record<never, never>, Record<never, never>>,
+    '/planets/[id]': RouteRecordInfo<'/planets/[id]', '/planets/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/Planets': RouteRecordInfo<'/Planets', '/Planets', Record<never, never>, Record<never, never>>,
     '/species/[id]': RouteRecordInfo<'/species/[id]', '/species/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/Species': RouteRecordInfo<'/Species', '/Species', Record<never, never>, Record<never, never>>,
   }
@@ -42,20 +42,20 @@ declare module 'vue-router/auto-routes' {
       routes: '/'
       views: never
     }
+    'src/modules/People/views/people/[id].vue': {
+      routes: '/people/[id]'
+      views: never
+    }
     'src/modules/People/views/People.vue': {
       routes: '/People'
       views: never
     }
-    'src/modules/People/views/PeopleDetails.vue': {
-      routes: '/PeopleDetails'
+    'src/modules/Planets/views/planets/[id].vue': {
+      routes: '/planets/[id]'
       views: never
     }
-    'src/modules/Planets/views/Planet.vue': {
-      routes: '/Planet'
-      views: never
-    }
-    'src/modules/Planets/views/PlanetDetails.vue': {
-      routes: '/PlanetDetails'
+    'src/modules/Planets/views/Planets.vue': {
+      routes: '/Planets'
       views: never
     }
     'src/modules/Species/views/species/[id].vue': {

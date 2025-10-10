@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
-import {useFetch} from "../../../../utils/useData.ts";
-import type {Species} from "../../../../utils/apiType.ts";
+import {useFetch} from "../../../../utils/useData";
+import type {Planets} from "../../../../utils/apiType.ts";
 import LoadingComponent from "../../../../components/LoadingComponent.vue";
 import ErrorComponent from "../../../../components/ErrorComponent.vue";
 
 const route = useRoute();
-const url = `https://swapi.info/api/species/${route.params.id}`;
-const {data, error, loading} = useFetch<Species>(url);
-
+const url = `https://swapi.info/api/planets/${route.params.id}`;
+const {data, error, loading} = useFetch<Planets>(url)
 </script>
 
 <template>
@@ -19,11 +18,11 @@ const {data, error, loading} = useFetch<Species>(url);
     <error-component :error/>
   </div>
   <div v-else-if="data" class="main">
-    <h2>Species data</h2>
+    <h2>Planetary data</h2>
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-3 my-1">
-          Species:
+          Name:
         </div>
         <div class="col-3 my-1">
           {{ data.name }}
@@ -31,63 +30,63 @@ const {data, error, loading} = useFetch<Species>(url);
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Classification:
+          Rotation period:
         </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.classification }}
+        <div class="col-3 my-1">
+          {{ data.rotation_period }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Designation:
+          Orbital period:
         </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.designation }}
+        <div class="col-3 my-1">
+          {{ data.orbital_period }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Average height:
+          Diameter:
         </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.average_height }}
+        <div class="col-3 my-1">
+          {{ data.diameter }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Skin colors:
+          Climate:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.skin_colors }}
+          {{ data.climate }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Hair colors:
+          Gravity:
         </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.hair_colors }}
+        <div class="col-3 my-1">
+          {{ data.gravity }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Eye colors:
+          Terrain:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.eye_colors }}
+          {{ data.terrain }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Average lifespan:
+          Surface water:
         </div>
         <div class="col-3 my-1">
-          {{ data.average_lifespan }}
+          {{ data.surface_water }}
         </div>
       </div>
     </div>
     <div class="container-fluid text-center">
-      <router-link to="/species" class="btn text-decoration-none">
+      <router-link to="/planets" class="btn text-decoration-none">
         Back to the list
         <svg
             xmlns="http://www.w3.org/2000/svg"

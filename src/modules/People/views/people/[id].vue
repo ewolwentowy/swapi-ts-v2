@@ -1,93 +1,86 @@
 <script setup lang="ts">
 import {useRoute} from "vue-router";
 import {useFetch} from "../../../../utils/useData.ts";
-import type {Species} from "../../../../utils/apiType.ts";
+import type {People} from "../../../../utils/apiType.ts";
 import LoadingComponent from "../../../../components/LoadingComponent.vue";
 import ErrorComponent from "../../../../components/ErrorComponent.vue";
 
 const route = useRoute();
-const url = `https://swapi.info/api/species/${route.params.id}`;
-const {data, error, loading} = useFetch<Species>(url);
+const url = `https://swapi.info/api/people/${route.params.id}`;
+const {data, error, loading} = useFetch<People>(url)
 
 </script>
 
 <template>
-  <div v-if="loading">
+<div v-if="loading">
     <LoadingComponent/>
   </div>
   <div v-else-if="error" class="error">
     <error-component :error/>
   </div>
   <div v-else-if="data" class="main">
-    <h2>Species data</h2>
+    <h2>Character data</h2>
+       <div class="text-center">{{data.name}}</div>
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-3 my-1">
-          Species:
+          Height:
         </div>
         <div class="col-3 my-1">
-          {{ data.name }}
+          {{ data.height }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Classification:
+          Mass:
+        </div>
+        <div class="col-3 my-1">
+          {{ data.mass }}
+        </div>
+      </div>
+      <div class="row justify-content-center ">
+        <div class="col-3 my-1">
+          Hair color:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.classification }}
+          {{ data.hair_color }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Designation:
+          Skin color:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.designation }}
+          {{ data.skin_color }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Average height:
+          Eye color:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.average_height }}
+          {{ data.eye_color }}
         </div>
       </div>
       <div class="row justify-content-center ">
         <div class="col-3 my-1">
-          Skin colors:
+          Birth year:
+        </div>
+        <div class="col-3 my-1">
+          {{ data.birth_year }}
+        </div>
+      </div>
+      <div class="row justify-content-center ">
+        <div class="col-3 my-1">
+          Gender:
         </div>
         <div class="col-3 my-1 text-capitalize">
-          {{ data.skin_colors }}
-        </div>
-      </div>
-      <div class="row justify-content-center ">
-        <div class="col-3 my-1">
-          Hair colors:
-        </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.hair_colors }}
-        </div>
-      </div>
-      <div class="row justify-content-center ">
-        <div class="col-3 my-1">
-          Eye colors:
-        </div>
-        <div class="col-3 my-1 text-capitalize">
-          {{ data.eye_colors }}
-        </div>
-      </div>
-      <div class="row justify-content-center ">
-        <div class="col-3 my-1">
-          Average lifespan:
-        </div>
-        <div class="col-3 my-1">
-          {{ data.average_lifespan }}
+          {{ data.gender }}
         </div>
       </div>
     </div>
     <div class="container-fluid text-center">
-      <router-link to="/species" class="btn text-decoration-none">
+      <router-link to="/people" class="btn text-decoration-none">
         Back to the list
         <svg
             xmlns="http://www.w3.org/2000/svg"
